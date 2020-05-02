@@ -30,3 +30,32 @@ if inp == "h":
         t = asin(st) + 2*pi
 
     print("deklináció = ",degrees(dec),"óraszög = ",degrees(t))
+    
+elif inp =="eq":
+    t = float(input("óraszög (0,360):"))
+    dec = float(input("deklináció (-90,90):"))
+    rdec = radians(dec) 
+    rt = radians(t)
+    
+    sm = sin(rdec)*sin(rphi)+cos(rdec)*cos(rphi)*cos(rt)
+    m = asin(sm)
+    
+    sA = (cos(rdec)*sin(rt))/cos(m)
+    cA = (-sin(rdec)*cos(rphi)+cos(rdec)*sin(rphi)*cos(rt))/cos(m)
+
+    if sA > 0 and cA > 0:
+        A = asin(sA)
+        
+    elif sA > 0 and cA < 0:
+        A = pi- asin(sA)
+
+    elif sA < 0 and cA < 0:
+        A = pi- asin(sA)
+
+    elif sA < 0 and cA > 0: 
+        A = asin(sA) + 2*pi
+
+    print("magasság = ",degrees(m),"azimut = ",degrees(A))
+
+else:
+    print("Abból válassz ami van")
