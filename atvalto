@@ -30,7 +30,7 @@ if inp == "h":
         t = asin(st) + 2*pi
 
     print("deklináció = ",degrees(dec),"óraszög = ",degrees(t))
-lihilknilkhnlkhnoilkhnoilkhnliokn
+    
 elif inp =="eq":
     t = float(input("óraszög (0,360):"))
     dec = float(input("deklináció (-90,90):"))
