@@ -1,0 +1,32 @@
+import math
+from math import cos, sin, asin, degrees, radians, pi
+
+inp = input("horizontalisból: h egyenltőiből: eq")
+phi = float(input("Add meg a földrajzi szélesség:"))
+rphi = radians(phi)
+
+if inp == "h":
+		m = float(input("magasság (-90,90):"))
+    A = float(input("azimut (0,360):"))
+    rm = radians(m) 
+    rA = radians(A)
+    
+    sdec = sin(rm)*sin(rphi)-cos(rm)*cos(rphi)*cos(rA)
+    dec = asin(sdec)
+    
+    st = (cos(rm)*sin(rA))/cos(dec)
+    ct = (sin(rm)*cos(rphi)+cos(rm)*sin(rphi)*cos(rA))/cos(dec)
+
+    if st > 0 and ct > 0:
+        t = asin(st)
+        
+    elif st > 0 and ct < 0:
+        t = pi- asin(st)
+
+    elif st < 0 and ct < 0:
+        t = pi- asin(st)
+
+    elif st < 0 and ct > 0: 
+        t = asin(st) + 2*pi
+
+    print("deklináció = ",degrees(dec),"óraszög = ",degrees(t))
